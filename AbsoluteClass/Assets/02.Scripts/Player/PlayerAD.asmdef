@@ -1,3 +1,15 @@
-﻿{
-	"name": "PlayerAD"
+{
+    "name": "PlayerAD",
+    "references": [
+        "GUID:83d5799ac95472f4aa144f3c8f980b94"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

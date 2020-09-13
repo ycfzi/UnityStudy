@@ -74,6 +74,8 @@ public class MoveAgent : MonoBehaviour
             group.GetComponentsInChildren<Transform>(wayPoints);
             //wayPointgroup 자체도 순찰 지점으로 활용하겠다면 아래 주석
             wayPoints.RemoveAt(0);
+
+            nextIdx = Random.Range(0, wayPoints.Count);
         }
 
         //처음 순찰 지점 찍은 뒤 움직이는 거 확인했던 함수
@@ -125,7 +127,8 @@ public class MoveAgent : MonoBehaviour
             agent.remainingDistance <= 0.5f)
         {
             //다음 목적지의 배열 첨자 계산
-            nextIdx = ++nextIdx % wayPoints.Count;
+            //nextIdx = ++nextIdx % wayPoints.Count; <- 단일에너미
+            nextIdx = Random.Range(0, wayPoints.Count); 
             MoveWayPoint();
         }
     }
