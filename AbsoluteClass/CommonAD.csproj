@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\02.Scripts\Common\FollowCam.cs" />
+    <Compile Include="Assets\02.Scripts\Common\GameManager.cs" />
     <Compile Include="Assets\02.Scripts\Common\Shake.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/user/Desktop/AbsoluteClass/AbsoluteClass/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

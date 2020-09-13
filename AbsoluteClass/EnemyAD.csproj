@@ -65,6 +65,7 @@
     <Compile Include="Assets\02.Scripts\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\EnemyDamange.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\EnemyFire.cs" />
+    <Compile Include="Assets\02.Scripts\Enemy\EnemyHpBar.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\MoveAgent.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/user/Desktop/AbsoluteClass/AbsoluteClass/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

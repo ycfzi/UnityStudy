@@ -695,6 +695,10 @@
       <Project>{CDDA11FC-956D-3ABD-E305-6F83D1F28309}</Project>
       <Name>CommonAD</Name>
     </ProjectReference>
+    <ProjectReference Include="MainAD.csproj">
+      <Project>{EBB9BE5F-CAE9-D7A7-89AA-179C0CC530D1}</Project>
+      <Name>MainAD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

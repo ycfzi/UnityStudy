@@ -113,11 +113,13 @@ public class EnemyAI : MonoBehaviour
                     moveAgent.patrolling = true;
                     animator.SetBool(hashMove, true);
                     break;
+
                 case State.TRACE:
                     enemyFire.isFire = false;
                     moveAgent.traceTarget = playerTr.position;
                     animator.SetBool(hashMove, true);
                     break;
+
                 case State.ATTACK:
                     moveAgent.Stop();
                     animator.SetBool(hashMove, false);
@@ -125,7 +127,10 @@ public class EnemyAI : MonoBehaviour
                     if (enemyFire.isFire == false)
                         enemyFire.isFire = true;
                     break;
+
                 case State.DIE:
+                    this.gameObject.tag = "Untagged";
+
                     isDie = true;
                     enemyFire.isFire = false;
                     //순찰 정지
