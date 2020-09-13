@@ -641,6 +641,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="StageAD.csproj">
+      <Project>{35663026-531A-AD20-1C90-DB32263D36DA}</Project>
+      <Name>StageAD</Name>
+    </ProjectReference>
     <ProjectReference Include="EnemyAD.csproj">
       <Project>{649AB376-3AAB-AD60-7E4F-6E427E0AB237}</Project>
       <Name>EnemyAD</Name>
@@ -649,9 +653,9 @@
       <Project>{C2540985-8E47-404A-7600-24E4F1299466}</Project>
       <Name>PlayerAD</Name>
     </ProjectReference>
-    <ProjectReference Include="StageAD.csproj">
-      <Project>{35663026-531A-AD20-1C90-DB32263D36DA}</Project>
-      <Name>StageAD</Name>
+    <ProjectReference Include="CommonAD.csproj">
+      <Project>{CDDA11FC-956D-3ABD-E305-6F83D1F28309}</Project>
+      <Name>CommonAD</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
