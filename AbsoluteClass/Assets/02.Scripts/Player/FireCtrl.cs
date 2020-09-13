@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 //오디오 클립 저장할 구조체
@@ -46,6 +47,9 @@ public class FireCtrl : MonoBehaviour
     public float reloadTime = 2.0f;
     private bool isReloading = false;
 
+    public Sprite[] weaponIcons;
+    public Image weaponImage;
+
     void Start()
     {
         //FirePos 하위의 컴포넌트 추출
@@ -56,6 +60,9 @@ public class FireCtrl : MonoBehaviour
     
     void Update()
     {
+        //UI 항목 위에서 클릭 또는 터치하면 true 값 반환
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+
         //마우스 왼쪽 버튼
         if (!isReloading && Input.GetMouseButtonDown(0))
         {
@@ -106,6 +113,12 @@ public class FireCtrl : MonoBehaviour
     {
         //(남은 총알 수 / 최대 총알 수) 표시
         magazineText.text = string.Format("<color=#ff0000>{0}</color>/{1}", remainingBullet, maxBullet);
+    }
+
+    public void OnChangeWeapon()
+    {
+        currentWeapon = (WeaponType)((int)++currentWeapon % 2);
+        weaponImage.sprite = weaponIcons[(int)currentWeapon];
     }
 
     void FireSfx()

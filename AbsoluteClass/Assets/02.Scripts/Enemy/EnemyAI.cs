@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     public float attackDist = 5.0f;
     public float traceDist = 10.0f;
     public bool isDie = false;
+    public bool isHit = false;
 
     private WaitForSeconds ws;
     private MoveAgent moveAgent;

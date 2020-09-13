@@ -10,6 +10,7 @@ public class EnemyDamange : MonoBehaviour
     private float initHp = 100.0f;
 
     private GameObject bloodEffect;
+    private EnemyAI enemyAI;
 
     //생명 게이지 프리팹을 저장할 변수
     public GameObject hpBarPrefab;
@@ -22,7 +23,7 @@ public class EnemyDamange : MonoBehaviour
 
     void Start()
     {
-        //enemyAI = GetComponent<EnemyAI>();
+        enemyAI = GetComponent<EnemyAI>();
 
         bloodEffect = Resources.Load<GameObject>("BulletImpactFleshBigEffect");
         SetHpBar();
@@ -30,7 +31,7 @@ public class EnemyDamange : MonoBehaviour
 
     void SetHpBar()
     {
-        uiCanvas = GameObject.Find("UI Camera").GetComponent<Canvas>();
+        uiCanvas = GameObject.Find("UI Canvas").GetComponent<Canvas>();
         //UI 캔버스 하위로 생명 게이지 생성
         GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, uiCanvas.transform);
         hpBarImage = hpBar.GetComponentsInChildren<Image>()[1];
@@ -57,6 +58,11 @@ public class EnemyDamange : MonoBehaviour
                 GetComponent<EnemyAI>().state = EnemyAI.State.DIE;
                 //적 캐릭터가 사망한 이후 생명 게이지 투명 처리
                 hpBarImage.GetComponentsInParent<Image>()[1].color = Color.clear;
+            }
+
+            else if (!enemyAI.isHit)
+            {
+                enemyAI.isHit = true;
             }
         }
     }

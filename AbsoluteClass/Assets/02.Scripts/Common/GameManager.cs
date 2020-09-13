@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private bool isPaused;
+    //Inventory의 CanvasGroup 컴포넌트를 저장할 변수
+    public CanvasGroup inventoryCG;
+
     [Header("Enemy Create Info")]
 
     public Transform[] points;
@@ -41,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        OnInventoryOpen(false);
+
         points = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
 
         if (points.Length > 0)
@@ -94,5 +100,32 @@ public class GameManager : MonoBehaviour
             else
                 yield return null;
         }
+    }
+
+    public void OnPauseClick()
+    {
+        //일시정지 값을 토글
+        isPaused = !isPaused;
+        //Time Scale은 0이면 정지, 1이면 정상 속도
+        Time.timeScale = (isPaused) ? 0.0f : 1.0f;
+        //플레이어 객체 추출
+        var playerObj = GameObject.FindGameObjectWithTag("PLAYER");
+        //플레이어 모든 스크립트 추출
+        var scripts = playerObj.GetComponents<MonoBehaviour>();
+        //플레이어의 모든 스크립트 활성화/비활성화
+        foreach (var script in scripts)
+        {
+            script.enabled = !isPaused;
+        }
+
+        var canvasGroup = GameObject.Find("Panel - Weapon").GetComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = !isPaused;
+    }
+
+    public void OnInventoryOpen(bool isOpened)
+    {
+        inventoryCG.alpha = (isOpened) ? 1.0f : 0.0f;
+        inventoryCG.interactable = isOpened;
+        inventoryCG.blocksRaycasts = isOpened;
     }
 }
